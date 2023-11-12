@@ -153,6 +153,38 @@ function MostrarListado() {
 
 }
 
+//-------------------------------------------------------------------------------------------------------
+//Muestro la cotizacion del dolar
+
+const urlDOlarOficial = "https://dolarapi.com/v1/dolares/oficial"
+const urlDOlarBlue = "https://dolarapi.com/v1/dolares/blue"
+
+fetch(urlDOlarOficial)
+  .then(response => response.json())
+  .then(data => {
+    var cuadroDolar = document.getElementById('cuadroDolar1');
+    cuadroDolar.innerHTML = `
+      <h2>Dolar ${data.nombre}</h2>
+      <p>Moneda: ${data.moneda}</p>
+      <p>Compra: ${data.compra}</p>
+      <p>Venta: ${data.venta}</p>
+    `;
+  });
+
+
+fetch(urlDOlarBlue)
+  .then(response => response.json())
+  .then(data => {
+    var cuadroDolar = document.getElementById('cuadroDolar2');
+    cuadroDolar.innerHTML = `
+      <h2>Dolar ${data.nombre}</h2>
+      <p>Moneda: ${data.moneda}</p>
+      <p>Compra: ${data.compra}</p>
+      <p>Venta: ${data.venta}</p>
+    `;
+  });
+
+
 
 //-------------------------------------------------------------------------------------------------------
 //VALIDACION DE FORMULARIO
@@ -227,7 +259,8 @@ const validaOk = (input) => {
 }
 
 const validaNombre = (nombr) => {
-    return /^[A-Za-z]+$/.test(nombr);
+    const nombrecompleto = nombr.replace(/\s/g, "");;//le quito espacios al nombre
+    return /^[A-Za-z]+$/.test(nombrecompleto);
 }
 const validaEmail = (mail) => {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail);        

@@ -136,3 +136,21 @@ tr:hover td{
 	background-color: #0074cc;
 	color: white;
 }
+
+.cuadroDolar {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  #cuadroDolar1 {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
+
+  #cuadroDolar2 {
+    position: fixed;
+    top: 210px;
+    left: 10px;
+  }
